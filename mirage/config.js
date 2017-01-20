@@ -49,6 +49,11 @@ export default function() {
       return { data: rentals };
     }
   });
+
+  this.get('/rentals/:id', function(db, request) {
+    console.log(request.params)
+    return { data: rentals.find((rental) => request.params.id === rental.id) };
+  });
 }
 
 // These comments are here to help you get started. Feel free to delete them.
